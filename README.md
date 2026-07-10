@@ -14,7 +14,7 @@ module "js_recon" {
   source  = "shriyanss/js-recon/aws"
   version = "~> 1.0"
 
-  url = "https://your-target.com"
+  url = "https://example.com"
 }
 ```
 
@@ -48,7 +48,7 @@ The build waits up to 120 seconds for the URL to respond before scanning.
 | Name | Required | Default | Description |
 |---|---|---|---|
 | `url` | Yes | — | Target URL to scan (external or `http://localhost:PORT`) |
-| `version` | No | `latest` | JS Recon version (`latest`, `alpha`, `1.3.1-beta.1`, …) |
+| `js_recon_version` | No | `latest` | JS Recon version (`latest`, `alpha`, `1.3.1-beta.1`, …) |
 | `break_on_map_files` | No | `true` | Fail if `.map` source map files are detected |
 | `break_on_vulnerabilities` | No | `true` | Fail if findings at or above the threshold are detected |
 | `vulnerability_severity` | No | `high` | Minimum severity to fail on: `low`, `medium`, or `high` |
@@ -101,7 +101,7 @@ By default, the build fails if `.map` source map files are publicly accessible:
 module "js_recon" {
   source = "shriyanss/js-recon/aws"
 
-  url                = "https://target.com"
+  url                = "https://example.com"
   break_on_map_files = true # default
 }
 ```
@@ -116,7 +116,7 @@ Control which severity level triggers a failure:
 module "js_recon" {
   source = "shriyanss/js-recon/aws"
 
-  url                      = "https://target.com"
+  url                      = "https://example.com"
   break_on_vulnerabilities = true
   vulnerability_severity   = "medium" # fail on medium or high
 }
@@ -134,7 +134,7 @@ Run JS Recon automatically on a CloudWatch Events schedule:
 module "js_recon" {
   source = "shriyanss/js-recon/aws"
 
-  url                 = "https://target.com"
+  url                 = "https://example.com"
   schedule_expression = "rate(1 day)"
 }
 ```
@@ -152,7 +152,7 @@ aws codebuild start-build --project-name js-recon
 # Override the target URL at build time
 aws codebuild start-build \
   --project-name js-recon \
-  --environment-variables-override name=JSR_URL,value=https://other-target.com,type=PLAINTEXT
+  --environment-variables-override name=JSR_URL,value=https://other.example.com,type=PLAINTEXT
 
 # Wait for the build to complete and print its status
 BUILD_ID=$(aws codebuild start-build --project-name js-recon --query 'build.id' --output text)
@@ -168,8 +168,8 @@ aws codebuild batch-get-builds --ids "$BUILD_ID" --query 'builds[0].buildStatus'
 module "js_recon" {
   source = "shriyanss/js-recon/aws"
 
-  url     = "https://target.com"
-  version = "1.3.1"
+  url              = "https://example.com"
+  js_recon_version = "1.3.1"
 }
 ```
 

@@ -124,7 +124,7 @@ resource "aws_codebuild_project" "js_recon" {
 
     environment_variable {
       name  = "JSR_VERSION"
-      value = var.version
+      value = var.js_recon_version
     }
 
     environment_variable {
@@ -185,7 +185,9 @@ resource "aws_codebuild_project" "js_recon" {
     }
   }
 
-  buildspec = <<-BUILDSPEC
+  source {
+    type      = "NO_SOURCE"
+    buildspec = <<-BUILDSPEC
     version: 0.2
 
     phases:
@@ -282,6 +284,7 @@ resource "aws_codebuild_project" "js_recon" {
               echo "[js-recon] Artifacts uploaded."
             fi
   BUILDSPEC
+  }
 }
 
 # ─── Optional EventBridge schedule ───────────────────────────────────────────
