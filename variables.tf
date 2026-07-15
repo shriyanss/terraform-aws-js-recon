@@ -4,7 +4,7 @@ variable "url" {
 }
 
 variable "js_recon_version" {
-  description = "JS Recon version to install — passed to npm install -g @shriyanss/js-recon@<version> (e.g. latest, alpha, 1.3.1-beta.1)"
+  description = "JS Recon version to install — passed to npm install -g @js-recon/js-recon@<version> (e.g. latest, alpha, 1.3.1-beta.1)"
   type        = string
   default     = "latest"
 }

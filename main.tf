@@ -195,8 +195,8 @@ resource "aws_codebuild_project" "js_recon" {
         commands:
           - npm config set prefix /home/pptruser/.npm-global
           - export PATH="/home/pptruser/.npm-global/bin:$PATH"
-          - echo "[js-recon] Installing @shriyanss/js-recon@$${JSR_VERSION}..."
-          - npm install -g "@shriyanss/js-recon@$${JSR_VERSION}"
+          - echo "[js-recon] Installing @js-recon/js-recon@$${JSR_VERSION}..."
+          - npm install -g "@js-recon/js-recon@$${JSR_VERSION}"
           - INSTALLED_VERSION=$(js-recon --version 2>/dev/null || echo "unknown")
           - echo "[js-recon] Installed version: $${INSTALLED_VERSION}"
 

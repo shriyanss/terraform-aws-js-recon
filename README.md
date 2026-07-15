@@ -11,7 +11,7 @@
 
 ```hcl
 module "js_recon" {
-  source  = "shriyanss/js-recon/aws"
+  source  = "js-recon/js-recon/aws"
   version = "~> 1.0"
 
   url = "https://example.com"
@@ -99,7 +99,7 @@ By default, the build fails if `.map` source map files are publicly accessible:
 
 ```hcl
 module "js_recon" {
-  source = "shriyanss/js-recon/aws"
+  source = "js-recon/js-recon/aws"
 
   url                = "https://example.com"
   break_on_map_files = true # default
@@ -114,7 +114,7 @@ Control which severity level triggers a failure:
 
 ```hcl
 module "js_recon" {
-  source = "shriyanss/js-recon/aws"
+  source = "js-recon/js-recon/aws"
 
   url                      = "https://example.com"
   break_on_vulnerabilities = true
@@ -132,7 +132,7 @@ Run JS Recon automatically on a CloudWatch Events schedule:
 
 ```hcl
 module "js_recon" {
-  source = "shriyanss/js-recon/aws"
+  source = "js-recon/js-recon/aws"
 
   url                 = "https://example.com"
   schedule_expression = "rate(1 day)"
@@ -166,7 +166,7 @@ aws codebuild batch-get-builds --ids "$BUILD_ID" --query 'builds[0].buildStatus'
 
 ```hcl
 module "js_recon" {
-  source = "shriyanss/js-recon/aws"
+  source = "js-recon/js-recon/aws"
 
   url              = "https://example.com"
   js_recon_version = "1.3.1"
