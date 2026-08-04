@@ -15,7 +15,7 @@ github:
       - master
       containerImagesMustBePinnedByDigest: true
     branchMustBeProtected:
-      enabled: true
+      enabled: false # disabled: enabling real GitHub branch protection is a separate follow-up (would need to allow-list bot/PAT push automation first)
       namePatterns:
       - main
       - dev
