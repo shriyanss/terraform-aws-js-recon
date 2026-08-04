@@ -5,6 +5,12 @@
   Surface exposed endpoints, client-side vulnerabilities, and leaked source maps automatically.
 </p>
 
+<p align="center">
+  <a href="https://score.getplumber.io/github.com/js-recon/terraform-aws-js-recon">
+    <img src="https://score.getplumber.io/github.com/js-recon/terraform-aws-js-recon.svg" alt="Plumber Score">
+  </a>
+</p>
+
 ---
 
 ## Quick start
